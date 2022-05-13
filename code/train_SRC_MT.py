@@ -152,7 +152,7 @@ if __name__ == "__main__":
     train_dataset = chest_xray_14.CheXpertDataset(root_dir=args.root_path,
                                                   csv_file=args.csv_file_train,
                                                   transform=chest_xray_14.TransformTwice(transforms.Compose([
-                                                      transforms.Resize((384, 384)),
+                                                      transforms.Resize((224, 224)),
                                                       transforms.RandomAffine(degrees=10, translate=(0.02, 0.02)),
                                                       transforms.RandomHorizontalFlip(),
                                                       # transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0.1),
@@ -165,14 +165,14 @@ if __name__ == "__main__":
     val_dataset = chest_xray_14.CheXpertDataset(root_dir=args.root_path,
                                                 csv_file=args.csv_file_val,
                                                 transform=transforms.Compose([
-                                                    transforms.Resize((384, 384)),
+                                                    transforms.Resize((224, 224)),
                                                     transforms.ToTensor(),
                                                     normalize,
                                                 ]))
     test_dataset = chest_xray_14.CheXpertDataset(root_dir=args.root_path,
                                                  csv_file=args.csv_file_test,
                                                  transform=transforms.Compose([
-                                                     transforms.Resize((384, 384)),
+                                                     transforms.Resize((224, 224)),
                                                      transforms.ToTensor(),
                                                      normalize,
                                                  ]))
