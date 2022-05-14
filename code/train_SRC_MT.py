@@ -67,7 +67,7 @@ parser.add_argument('--num_classes', type=float,  default=15, help='num_classes'
 args = parser.parse_args()
 
 train_data_path = args.root_path
-snapshot_path = "../model/" + args.exp + "/"
+snapshot_path = "./testcode_ChestX-ray14/data" + args.exp + "/"
 
 os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
 batch_size = args.batch_size * len(args.gpu.split(','))
